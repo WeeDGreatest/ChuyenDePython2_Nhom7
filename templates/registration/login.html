@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html>
+<head>
+    <title>Social Media</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" type="text/css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Màu nền trang chính */
+        }
+        .login-card {
+            max-width: 400px; /* Chiều rộng tối đa của card (tăng từ 350px lên 400px) */
+            margin: auto; /* Giữa trang */
+            padding: 20px; /* Khoảng cách bên trong card (tăng từ 15px lên 20px) */
+            border-radius: 8px; /* Bo góc */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+            background-color: #fff; /* Màu nền form */
+        }
+        nav {
+            background-color: #FF4500; /* Màu navbar */
+            padding: 10px 0; /* Padding trên và dưới */
+        }
+        nav h3, nav a {
+            color: white; /* Màu chữ navbar */
+        }
+        .nav-title {
+            white-space: nowrap; /* Ngăn chặn xuống dòng */
+            text-align: center; /* Canh giữa */
+        }
+        .login-card h3 {
+            text-align: center; /* Canh giữa tiêu đề */
+        }
+        .login-card button {
+            width: 100%; /* Chiều rộng nút 100% */
+            background-color: #FF4500; /* Màu nền nút đỏ */
+            color: white; /* Màu chữ nút trắng */
+            border: none; /* Không viền */
+        }
+        .login-card button:hover {
+            background-color:red; /* Màu nền khi hover */
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <nav class="py-1">
+        
+            <div class="row">
+                <div class="col-4"></div>
+
+                <div class="col-4">
+                    <h3 style="text-align: center;"class="m-4"> Welcome  to our Social Media Website  </h3>
+                    
+
+                </div>
+                <div class="col-4">
+                    <h4 style="text-align:right;  text-decoration: underline;"class="mr-5 mt-2"><a  href="/signup" id="navLink">Signup</a></h4>   
+                </div>
+
+            </div>     
+            </div>
+        </nav>
+        </nav>
+
+<div class="container mt-5">
+    <div class="login-card">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <h3>Login</h3>
+            {{ form|crispy }}
+            <button type="submit">Login</button> <!-- Nút có màu đỏ -->
+        </form>
+        <p class="text-center mt-3">Don't have an account? <a href="{% url 'signup' %}">Create an account</a>.</p>
+        <p class="text-center">Forgot Password? <a href="{% url 'password_reset' %}">Reset Password</a>.</p>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4clIK7Yq8e+K9tYJ8lqf1zF5D5m3mD44Qo6+7OCf2FOm3nVjB5snqZw" crossorigin="anonymous"></script>
+</body>
+</html>
